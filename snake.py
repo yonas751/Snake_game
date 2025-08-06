@@ -29,6 +29,13 @@ class SnakeGame:
         turtle.penup()
         turtle.goto(i)
         self.another_list.append(turtle)
+    def reset_snake(self):
+        for i in self.another_list:
+            i.goto(1000,1000)
+        self.another_list.clear()
+        self.create_snake()
+        self.head=self.another_list[0]
+
     def extend(self):
         self.increase_head(self.tail.position())
 

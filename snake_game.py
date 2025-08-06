@@ -1,4 +1,4 @@
-import turtle
+
 from turtle import Turtle,Screen
 from SCORE import Score
 from food import Food
@@ -34,23 +34,14 @@ while game_on:
         food.refresh()
         score.increase_score()
         snake.extend()
-    if snake.head.xcor()>290 or snake.head.xcor()<-290 or snake.head.ycor()>290 or snake.head.ycor()<-290:
-        game_on=False
-        score.game_over()
+    if snake.head.xcor()>280 or snake.head.xcor()<-280 or snake.head.ycor()>280 or snake.head.ycor()<-280:
+            score.reset()
+            snake.reset_snake()
     for i in snake.another_list[1:]:
 
         if snake.head.distance(i) < 10:
-            game_on = False
-            score.game_over()
-
-    else:
-        pass
-
-
-
-
-
-
+            snake.reset_snake()
+            score.reset()
 
 screen.exitonclick()
 
